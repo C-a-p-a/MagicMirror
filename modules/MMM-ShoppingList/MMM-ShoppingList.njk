@@ -1,0 +1,31 @@
+{% if loaded %}
+  {% if uncheckedCount > 0 or (config.showChecked and checked.length > 0) %}
+    <ul class="shopping-list">
+      {% for item in unchecked %}
+        {% if loop.index0 < config.maxItems %}
+          <li class="shopping-item bright">
+            <span class="fa fa-square-o shopping-checkbox"></span>
+            <span class="shopping-text">{{ item.text }}</span>
+            {% if config.showAddedBy and item.added_by %}
+              <span class="shopping-added-by xsmall dimmed"> - {{ item.added_by }}</span>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+      {% if config.showChecked %}
+        {% for item in checked %}
+          <li class="shopping-item shopping-checked dimmed{% if config.fadeChecked %}shopping-faded{% endif %}">
+            <span class="fa fa-check-square-o shopping-checkbox"></span>
+            <span class="shopping-text">{{ item.text }}</span>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  {% else %}
+    <div class="small dimmed"><span class="fa fa-check-circle"></span> Handlelisten er tom</div>
+  {% endif %}
+{% elif error %}
+  <div class="small dimmed">Feil: {{ error }}</div>
+{% else %}
+  <div class="small dimmed">Laster handleliste...</div>
+{% endif %}

@@ -1,0 +1,36 @@
+{% if loaded %}
+  {% if matches.length > 0 %}
+    <table class="small">
+      {% for match in matches %}
+        <tr>
+          {% if config.showLeagueBadge and match.league %}
+            <td class="football-league xsmall dimmed">{{ match.league }}</td>
+          {% endif %}
+          <td class="football-home align-right light">{{ match.homeTeam }}</td>
+          <td class="football-score bright bold">
+            {% if match.homeScore is defined and match.homeScore !== null %}
+              {{ match.homeScore }}
+              - {{ match.awayScore }}
+            {% else %}
+              <span class="dimmed">vs</span>
+            {% endif %}
+          </td>
+          <td class="football-away light">{{ match.awayTeam }}</td>
+          <td class="football-time xsmall dimmed align-right">
+            {% if match.status %}
+              {{ match.status }}
+            {% elif match.time %}
+              {{ match.time }}
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <div class="small dimmed">Ingen kamper i dag</div>
+  {% endif %}
+{% elif error %}
+  <div class="small dimmed">Feil: {{ error }}</div>
+{% else %}
+  <div class="small dimmed">Laster kamper...</div>
+{% endif %}

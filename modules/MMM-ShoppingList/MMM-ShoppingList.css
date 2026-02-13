@@ -1,0 +1,28 @@
+.MMM-ShoppingList .shopping-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.MMM-ShoppingList .shopping-item {
+  padding: 4px 0;
+  font-size: var(--font-size-small);
+}
+
+.MMM-ShoppingList .shopping-checkbox {
+  margin-right: 8px;
+  width: 18px;
+  display: inline-block;
+}
+
+.MMM-ShoppingList .shopping-checked .shopping-text {
+  text-decoration: line-through;
+}
+
+.MMM-ShoppingList .shopping-faded {
+  opacity: 0.4;
+}
+
+.MMM-ShoppingList .shopping-added-by {
+  font-style: italic;
+}

@@ -1,0 +1,26 @@
+.MMM-Stocks table {
+  border-collapse: collapse;
+}
+
+.MMM-Stocks td {
+  padding: 3px 8px;
+}
+
+.MMM-Stocks .stock-symbol {
+  min-width: 60px;
+}
+
+.MMM-Stocks .stock-up {
+  color: #2ecc71;
+}
+
+.MMM-Stocks .stock-down {
+  color: #e74c3c;
+}
+
+.MMM-Stocks .stock-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

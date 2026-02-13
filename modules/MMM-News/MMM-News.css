@@ -1,0 +1,38 @@
+.MMM-News .news-source-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+}
+
+.MMM-News .news-source-line {
+  margin-bottom: 5px;
+}
+
+.MMM-News .news-title {
+  line-height: 1.3;
+}
+
+.MMM-News .news-description {
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.MMM-News .news-list-item {
+  padding: 5px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 5%);
+}
+
+.MMM-News .news-list-item:last-child {
+  border-bottom: none;
+}
+
+.MMM-News .news-time {
+  white-space: nowrap;
+}

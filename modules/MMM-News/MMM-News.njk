@@ -1,0 +1,48 @@
+{% if loaded %}
+  {% if config.showAsList %}
+    {# LIST VIEW #}
+    {% if items.length > 0 %}
+      <div class="news-list">
+        {% for item in items %}
+          {% if loop.index0 < config.maxListItems %}
+            <div class="news-list-item">
+              {% if config.showSource %}
+                <span class="news-source-badge" style="background-color: {{ item.sourceColor or '#666' }}"> {{ item.source }} </span>
+              {% endif %}
+              <span class="news-title bright light">{{ item.title }}</span>
+              {% if config.showPublishDate %}
+                <span class="news-time xsmall dimmed"> {{ item.relativeTime }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="small dimmed">Ingen nyheter</div>
+    {% endif %}
+  {% else %}
+    {# SINGLE HEADLINE VIEW (rotating) #}
+    {% if currentItem %}
+      <div class="news-single">
+        {% if config.showSource %}
+          <div class="news-source-line small dimmed">
+            <span class="news-source-badge" style="background-color: {{ currentItem.sourceColor or '#666' }}"> {{ currentItem.source }} </span>
+            {% if config.showPublishDate %}
+              <span class="news-time"> {{ currentItem.relativeTime }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="news-title bright medium light">{{ currentItem.title }}</div>
+        {% if config.showDescription and currentItem.description %}
+          <div class="news-description small light dimmed">{{ currentItem.description | truncate(config.truncDescription) }}</div>
+        {% endif %}
+      </div>
+    {% else %}
+      <div class="small dimmed">Ingen nyheter</div>
+    {% endif %}
+  {% endif %}
+{% elif error %}
+  <div class="small dimmed">Feil: {{ error }}</div>
+{% else %}
+  <div class="small dimmed">Laster nyheter...</div>
+{% endif %}

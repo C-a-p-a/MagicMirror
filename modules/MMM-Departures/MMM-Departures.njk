@@ -1,0 +1,46 @@
+{% if loaded %}
+  {% if departures.length > 0 %}
+    <table class="small">
+      <thead>
+        <tr>
+          <th class="departures-line">Linje</th>
+          <th class="departures-destination">Destinasjon</th>
+          <th class="departures-time align-right">Avg.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dep in departures %}
+          {% if loop.index0 < config.maxDepartures %}
+            {% if dep.minutesUntil >= config.minutesThreshold or dep.delayMinutes > 0 %}
+              <tr>
+                <td class="departures-line-badge bright">
+                  <span class="line-number">{{ dep.line }}</span>
+                </td>
+                <td class="departures-destination light">{{ dep.destination }}</td>
+                <td class="departures-time align-right bright">
+                  {% if dep.minutesUntil <= 1 %}
+                    <span class="departures-urgent-critical"> {% if dep.minutesUntil <= 0 %}nå{% else %}1 min{% endif %} </span>
+                  {% elif dep.minutesUntil < config.urgencyMinutes %}
+                    <span class="departures-urgent-warning">{{ dep.minutesUntil }} min</span>
+                  {% else %}
+                    {{ dep.minutesUntil }}
+                    min
+                  {% endif %}
+                  {% if dep.delayMinutes > 0 %}
+                    <span class="departures-delay xsmall dimmed"> +{{ dep.delayMinutes }}</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="small dimmed">Ingen avganger</div>
+  {% endif %}
+{% elif error %}
+  <div class="small dimmed">Feil: {{ error }}</div>
+{% else %}
+  <div class="small dimmed">Laster avganger...</div>
+{% endif %}

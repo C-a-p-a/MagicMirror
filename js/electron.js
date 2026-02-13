@@ -165,6 +165,11 @@ function createWindow () {
 	mainWindow.once("ready-to-show", () => {
 		mainWindow.show();
 	});
+
+	// Register Ctrl+Q to quit the application
+	electron.globalShortcut.register("CommandOrControl+Q", () => {
+		app.exit(0);
+	});
 }
 
 // Quit when all windows are closed.

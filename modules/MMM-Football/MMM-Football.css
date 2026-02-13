@@ -1,0 +1,27 @@
+.MMM-Football table {
+  border-collapse: collapse;
+}
+
+.MMM-Football td {
+  padding: 4px 8px;
+}
+
+.MMM-Football .football-home {
+  min-width: 120px;
+}
+
+.MMM-Football .football-away {
+  min-width: 120px;
+}
+
+.MMM-Football .football-score {
+  text-align: center;
+  min-width: 50px;
+  white-space: nowrap;
+}
+
+.MMM-Football .football-league {
+  padding-right: 12px;
+  text-transform: uppercase;
+  font-size: var(--font-size-xsmall);
+}

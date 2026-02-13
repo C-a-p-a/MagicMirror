@@ -54,9 +54,14 @@ Temporary Items
 .directory
 .Trash-*
 
-# Ignore all modules except the default modules.
+# Ignore all modules except the default modules and custom SmartHub modules.
 /modules/*
 !/modules/default
+!/modules/MMM-Departures
+!/modules/MMM-ShoppingList
+!/modules/MMM-Football
+!/modules/MMM-Stocks
+!/modules/MMM-News
 
 # Ignore changes to the custom css files but keep the sample and main.
 /css/*
@@ -65,9 +70,11 @@ Temporary Items
 !/css/main.css
 !/css/roboto.css
 
-# Ignore users config file but keep the sample.
+# Ignore users config file but keep the sample, template, and env example.
 config
 !config/config.js.sample
+!config/config.js.template
+!config/config.env.example
 
 # Vim
 ## swap

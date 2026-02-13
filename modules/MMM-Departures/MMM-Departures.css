@@ -1,0 +1,48 @@
+.MMM-Departures .departures-line-badge {
+  padding-right: 10px;
+}
+
+.MMM-Departures .line-number {
+  background-color: rgb(255 255 255 / 15%);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+  min-width: 30px;
+  display: inline-block;
+  text-align: center;
+}
+
+.MMM-Departures .departures-destination {
+  padding-right: 20px;
+}
+
+.MMM-Departures .departures-delay {
+  color: #e74c3c;
+}
+
+.MMM-Departures table {
+  border-collapse: collapse;
+}
+
+.MMM-Departures thead th {
+  font-weight: 400;
+  color: var(--color-text-dimmed);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--color-text-dimmed);
+  font-size: var(--font-size-xsmall);
+  text-transform: uppercase;
+}
+
+.MMM-Departures tbody td {
+  padding: 5px 0;
+}
+
+.MMM-Departures .departures-urgent-warning {
+  color: #f39c12;
+}
+
+.MMM-Departures .departures-urgent-critical {
+  color: #e74c3c;
+}

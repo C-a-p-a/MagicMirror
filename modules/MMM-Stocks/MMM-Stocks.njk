@@ -1,0 +1,27 @@
+{% if loaded %}
+  {% if stocks.length > 0 %}
+    <table class="small">
+      {% for stock in stocks %}
+        <tr>
+          <td class="stock-symbol bright bold">{{ stock.symbol }}</td>
+          <td class="stock-name light dimmed">{{ stock.name or "" }}</td>
+          <td class="stock-price align-right bright">{{ stock.price | replace(".", config.decimalSeparator) }}</td>
+          {% if config.showChange %}
+            <td class="stock-change align-right{% if stock.change > 0 %}stock-up{% elif stock.change < 0 %}stock-down{% endif %}">{% if stock.change > 0 %}+{% endif %}{{ stock.change | replace(".", config.decimalSeparator) }}</td>
+          {% endif %}
+          {% if config.showPercent %}
+            <td class="stock-percent align-right xsmall{% if stock.changePercent > 0 %}stock-up{% elif stock.changePercent < 0 %}stock-down{% endif %}">
+              ({% if stock.changePercent > 0 %}+{% endif %}{{ stock.changePercent | replace(".", config.decimalSeparator) }}%)
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <div class="small dimmed">Ingen aksjedata</div>
+  {% endif %}
+{% elif error %}
+  <div class="small dimmed">Feil: {{ error }}</div>
+{% else %}
+  <div class="small dimmed">Laster aksjer...</div>
+{% endif %}
